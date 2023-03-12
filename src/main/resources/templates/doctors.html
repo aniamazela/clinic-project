@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Umów wizytę</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            text-align: center;
+            border-radius: 25px;
+            border-spacing: 15px;
+        }
+
+        .right {
+            padding-top: 15px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            color: black;
+            border: 0px;
+            box-shadow: 0px 0px 0px;
+        }
+
+        .textDoctor {
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: bolder;
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+
+    <div class="right">
+        <table id="table1">
+            <tr>
+                <td colspan="2">
+                    <form method="get" th:object="${doctors}" th:action="@{/doctors/specialization}">
+                        <label>Wyświetl lekarzy według specjalizacji: </label> <select name="specialization">
+                            <option th:each="specialization : ${T(pl.mazela.project.models.Specialization).values()}"
+                                th:value="${specialization}" th:text="${specialization}"></option>
+                        </select> <button type="submit">Wyświetl</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div th:if="'ok' == ${showAll}">
+                        <form method="get" th:action="@{/doctors}">
+                            <button type="submit" class="btn btn-sucess btn-sm">
+                                Wyświetl wszystkich lekarzy.
+
+                            </button>
+                        </form>
+                    </div>
+                    <div th:if="'only4' == ${showAll}">
+                        <form method="get" th:action="@{/doctors}">
+                            <button type="submit" class="btn btn-sucess btn-sm" th:name="page" th:value="${1}">
+                                Wyświetl po 4 pozycje na stronie.
+                            </button>
+                        </form>
+                    </div>
+
+                </td>
+                <td>
+                    <div th:if="'noPage' != ${noPage}">
+                        <form method="get">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-sucess btn-sm"
+                                    th:each="page: ${#numbers.sequence(1, maxPage)}" th:text="${page}"
+                                    th:value="${page}" th:name="page"></button>
+                            </div>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+            <tr class="card" th:each="doctor: ${doctors}">
+                <td colspan="2">
+                    <table style="border-collapse: separate;
+                    border-spacing: 10px;border:3px solid;box-shadow: 10px 10px 5px #aaaaaa;">
+                        <tr>
+                            <td style="width: 60%;">
+                                <span th:text="${doctor.name}+' '+${doctor.surname}" class="textDoctor"></span>
+                                <br><span th:text="${doctor.specialization}" style="font-size: 16px;"></span>
+                            </td>
+                            <td style="width: 40%;">
+                                <a th:href="@{/doctor/{id}/{nameAndSurname}(id=${doctor.id}, 
+                                nameAndSurname=${doctor.name}+${doctor.surname})}">Umów wizytę>></a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

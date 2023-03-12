@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Zarejestruj się</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h3 {
+            font-style: italic;
+        }
+
+        .right {
+            font-size: 14px;
+        }
+
+        .error {
+            color: red;
+            font-style: italic;
+        }
+
+
+        tr {
+            border-bottom: 1px solid darkslategray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <p>Moja e-przychodnia</p>
+    </div>
+    <div class="right">
+        <h3>Rejestracja</h3>
+
+        <table>
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <p th:text="${message}" class="error"></p>
+                <tr>
+                    <td><label>Nazwa użytkownika:</label></td>
+                    <td><input type="text" th:field="*{username}" placeholder="Wprowadź nazwę użytkownika"
+                            class="form-control" th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Hasło:</label></td>
+                    <td><input type="text" th:field="*{password}" placeholder="Wprowadź hasło" class="form-control"
+                            th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Imię:</label></td>
+                    <td><input type="text" th:field="*{firstName}" placeholder="Wprowadź imię" class="form-control"
+                            th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Nazwisko:</label></td>
+                    <td><input type="text" th:field="*{surname}" placeholder="Wprowadź nazwisko" class="form-control"
+                            th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="error">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>E-mail:</label></td>
+                    <td><input type="text" th:field="*{email}" placeholder="Wprowadź e-mail" class="form-control"
+                            th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error">
+                    </td>
+                </tr>
+                <!--                 <tr>
+                    <td><label>Rok urodzenia:</label></td>
+                    <td> <input type="number" name="yearOfBirth;" min="1900"
+                            th:attr="max=${#dates.format(#dates.createNow(), 'yyyy')}" value="1990" step="1" 
+                            class="form-control"/></td>
+                </tr> -->
+                <tr>
+                    <td><label>Telefon:</label></td>
+                    <td><input type="text" th:field="*{phoneNumber}" placeholder="Wprowadź numer telefonu"
+                            class="form-control" th:errorclass="error" />
+                        <br>
+                        <th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-primary">Załóż konto</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
+                    </td>
+                </tr>
+
+
+
+            </form>
+        </table>
+
+
+        <!--             <form method="post" th:action="@{/register}" th:object="${user}">
+                <label class="col-4 col-form-label">Nazwa użytkownika: </label>
+                <input th:field="*{firstName}" placeholder="Wprowadź nazwę użytkownika" /><br>
+                <label class="col-4 col-form-label">Hasło:</label>
+                <input th:field="*{password}" placeholder="Wprowadź hasło" /><br>
+             <label for="password">Potwierdź hasło:</label>
+                <input type="password" name="password;" placeholder="Potwierdź hasło" /><br> 
+
+                <label class="col-4 col-form-label">Imię:</label>
+                <input type="text" name="name" placeholder="Wprowadź imię" /><br>
+                <label class="col-4 col-form-label">Nazwisko:</label>
+                <input type="text" name="surname" placeholder="Wprowadź nazwisko" /><br>
+                <label class="col-4 col-form-label">Email:</label>
+                <input type="text" name="email" placeholder="Wprowadź email" /><br>
+
+                <label class="col-4 col-form-label">Rok urodzenia:</label>
+                <input type="number" name="yearOfBirth;" min="1900" th:attr="max=${#dates.format(#dates.createNow(), 'yyyy')}"
+                placeholder="1990" /><br>
+                <label class="col-4 col-form-label">Telefon:</label>
+                <input type="text" name="phone;" placeholder="Wprowadź numer telefonu" /><br>
+                <input type="submit" class="btn btn-primary" value="Załóż konto" />
+                <a th:href="@{/}" class="btn btn-primary">Wróć do strony głównej.</a>
+            </form> -->
+    </div>
+    <div class="footer">© amaz</div>
+</body>
+
+</html>

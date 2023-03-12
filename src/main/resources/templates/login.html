@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Zarejestruj się</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h3 {
+            font-style: italic;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <p>Moja e-przychodnia</p>
+    </div>
+
+    <div class="right">
+        <div th:if="${error}">
+            Unable to login. Check your username and password.
+        </div>
+        <h3>Zaloguj się</h3>
+        <table>
+            <form th:action="@{/login}" method="post" id="loginForm">
+                <tr>
+                    <td><label for="username">Nazwa użytkownika:</label></td>
+                    <td><input type="text" name="username" id="username" /></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Hasło:</label></td>
+                    <td><input type="password" name="password" id="password" placeholder="Hasło"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-primary">Zaloguj się</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+
+    <div class="footer">© amaz</div>
+</body>
+
+</html>

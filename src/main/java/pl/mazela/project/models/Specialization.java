@@ -1,0 +1,6 @@
+package pl.mazela.project.models;
+
+public enum Specialization {
+    ALERGOLOG, DERMATOLOG, ENDOKRYNOLOG, GINEKOLOG, KARDIOLOG,
+    NEUROLOG, OKULISTA, PEDIATRA, PSYCHIATRA, STOMATOLOG, UROLOG
+}

@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(137, 220, 235);
+    margin: 0px;
+}
+
+.header {
+    background-color: rgb(243, 56, 9);
+    color: white;
+    font-family: monospace;
+    font-style: italic;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(117, 133, 138);
+    color: white;
+    text-align: center;
+}

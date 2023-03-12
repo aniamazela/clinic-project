@@ -1,0 +1,100 @@
+html {
+    height: 100%;
+    min-width: 900px;
+    min-height: 550px;
+}
+
+body{
+    font-family: monospace;
+    background-image: url('https://img.freepik.com/premium-photo/doctor-working-hospital-healthcare-medical-service_31965-1053.jpg?w=996');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;    
+    font-style: italic;
+    font-family: monospace;
+}
+
+
+
+.header {
+    background-color: rgb(117, 133, 138);
+    color: white;
+
+    text-align: center;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+/* .footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(117, 133, 138);
+    color: white;
+    text-align: center;
+} */
+
+.right {
+    position: absolute;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 75px;;
+    right: 10%;
+    left: 45%;
+    min-width: 450px;
+    padding-top: 5px;
+    padding-bottom: 55px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: black;
+    border: 3px solid darkslategray;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    font-size: 12px;
+}
+
+input[type=text], input[type=password] {
+    width: 250px;
+    padding: 5px 20px;
+    margin: 1px 0px 6px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    
+  }
+
+  .btn-primary {
+    background-color: rgb(117, 133, 138) !important;
+    width: 350px;
+    border-color: darkgray;
+    border-radius: 7px;
+    margin: 5px;
+    font-size: large;
+
+}
+
+.card {
+      border-radius:15px;
+      border: 3px outset transparent;
+      height: 90px;
+    }
+
+.btn-group{
+    float: right;
+}    
+
+.navbar.navbar-inverse {
+    background-color: #3e4b56 ;
+    border: none;
+    border-radius: 0;
+    color: white;
+}
+
+
+
+
