@@ -106,7 +106,6 @@ public class SpecialistController {
         booking.setDate(data);
         bookingRepo.save(booking);
         model.addAttribute("doctor", doctorRepo.findById(bookingRepo.findById(bid).orElse(null).getIdDoctor()).get());
-
         return "bookingTime";
     }
 
@@ -133,14 +132,6 @@ public class SpecialistController {
         return "bookingFinal";
     }
 
-    /*
-     * @GetMapping()
-     * public String showBooking(Model model){
-     * model.addAttribute(new Booking());
-     * model.addAttribute("booking", bookingRepo.findAll());
-     * return "booking";
-     * }
-     */
 
     // @PostMapping("/doctor/{id}/{nameAndSurname}/{date}")
     // public String createBooking(@ModelAttribute("booking") Booking booking, Model
