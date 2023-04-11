@@ -92,24 +92,36 @@
 
                 </td>
             </tr>
+
             <tr class="card" th:each="doctor: ${doctors}">
                 <td colspan="2">
                     <table style="border-collapse: separate;
                     border-spacing: 10px;border:3px solid;box-shadow: 10px 10px 5px #aaaaaa;">
-                        <tr>
-                            <td style="width: 60%;">
-                                <span th:text="${doctor.name}+' '+${doctor.surname}" class="textDoctor"></span>
-                                <br><span th:text="${doctor.specialization}" style="font-size: 16px;"></span>
-                            </td>
-                            <td style="width: 40%;">
-                                <a th:href="@{/doctor/{id}/{nameAndSurname}(id=${doctor.id}, 
-                                nameAndSurname=${doctor.name}+${doctor.surname})}">Umów wizytę>></a>
-                            </td>
-                        </tr>
+                        <form method="post" th:action="@{/doctor/{did}/{nameAndSurname}(did=${doctor.id}, 
+                                nameAndSurname=${doctor.name}+${doctor.surname})}"
+                        th:object="${booking}">
+                            <tr>
+
+                                <td style="width: 60%;">
+                                    <span th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"
+                                        class="textDoctor" ></span>
+                                    <br><span th:text="${doctor.specialization}" style="font-size: 16px;" ></span>
+                                </td>
+                                <td style="width: 40%;">
+                                    <div class="form-group" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                                        <input type="submit" class="btn btn-link" value="Umów wizytę" ></input>
+                                    </div>
+                                <div class="form-group" th:unless="${#authorization.expression('hasRole(''USER'')')}">
+                                    <button type="button">Aby zarezerować wizytę<br />musisz być zalogowany!</button>
+                                </div>
+                                </td>
+                            </tr>
+                        </form>
                     </table>
                 </td>
             </tr>
         </table>
     </div>
 </body>
+
 </html>

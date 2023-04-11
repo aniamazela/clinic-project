@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Moja e-przychodnia</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <style>
+        tr {
+            border-bottom: 1px solid darkslategray;
+        }
+        th{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+    <div class="right">
+
+        <form method="post" th:action="@{/confirm/{bid}(bid=${booking.id})}">
+            <table style="font-size: 14px;">
+                <tr>
+                    <th>Typ wizyty</th>
+                    <th>Cena wizyty</th>
+                </tr>
+                <tr th:each="appointment: ${appointments}" th:if="${appointment.specialization.equals(specialization)}">
+                    <td> <input type="checkbox" th:name="type" th:value="${appointment.type}" onclick="onlyOne(this)">
+                        <label th:text="${appointment.type}"></label>
+                    </td>
+                    <td th:text="${appointment.price}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-link"> Potwierdz wizytę</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+
+    <!-- <h1 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h1>
+        <h3 th:text="'specjalizacja:  '+${doctor.specialization}"></h3> -->
+    <!-- <h3 th:text="'Data wizyty:  '+${booking.date}"></h3>
+        <form method="post" th:action="updateTime">
+            <select id="bookingTime" th:name="time">
+                <option th:value="15.00" th:text="15.00"></option>
+                <option th:value="15.30" th:text="15.30"></option>
+                <option th:value="16.00" th:text="16.00"></option>
+            </select>
+            <input type="submit" class="btn btn-link" value="Wybierz typ wizyty"/>
+        </form> -->
+
+    <!-- <form method="post" th:action="@{/updateBooking}">
+            <h1 th:text="'booking: '+${booking.id}"></h1>
+            <input type="hidden" th:name="bid" th:value="${booking.id}" />
+            <label>Wybierz datę wizyty: </label>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <input type="text" id="datepicker" placeholder="Wybierz datę wizyty." th:name="date" />
+            <input type="submit" class="btn btn-link" value="Wybierz godzinę wizyty" />
+        </form> -->
+    </div>
+</body>
+
+<script>
+
+    function onlyOne(checkbox) {
+        var checkboxes = document.getElementsByName('type')
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) item.checked = false
+        })
+    }
+
+</script>
+
+</html>

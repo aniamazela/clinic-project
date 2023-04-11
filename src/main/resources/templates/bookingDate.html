@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Moja e-przychodnia</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+    <div class="right">
+
+        <h1 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h1>
+        <h3 th:text="'specjalizacja:  '+${doctor.specialization}"></h3>
+
+
+            <form method="post" th:action="@{/updateTime/{bid}(bid=${booking.id})}" >
+            <input type="hidden" th:name="bid" th:value="${booking.id}" /><br>
+            <table>
+                <tr>
+                    <td>
+                        <label style="font-size: medium;">Wybierz datę wizyty:   </label>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </td>
+                    <td>
+                        <input type="text" required id="datepicker" placeholder="Wybierz datę wizyty." 
+                        th:name="date" style="width: 150px;"/>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-link" > Wybierz godzinę wizyty>></button>
+        </form>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: +1,
+            firstDay: 1,
+            maxDate: +32,
+            beforeShowDay: function (d) {
+                var day = d.getDay();
+                var day1 = "[[${day1}]]";
+                var day2 = "[[${day2}]]";
+                return [day == day1 || day == day2];
+            },
+        });
+    });
+</script>
+
+</html>

@@ -1,63 +1,63 @@
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values  (1, 'Julianna', 'Kowalczuk ', 'ALERGOLOG', 2, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (2, 'Dawid', 'Kowalczyk ', 'ALERGOLOG',1, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (3, 'Emil', 'Lewandowski', 'DERMATOLOG', 2, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (4, 'Ryszard', 'Rutkowski', 'DERMATOLOG', 3, 4);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (5, 'Janina', 'Adamczyk', 'ENDOKRYNOLOG', 4, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (6, 'Edward', 'Chmielewski', 'GINEKOLOG', 1, 2);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (7, 'Zofia', 'Kossak', 'GINEKOLOG', 3, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (8, 'Janusz', 'Walczuk', 'GINEKOLOG', 4, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (9, 'Janusz', 'Wieczorek', 'GINEKOLOG', 2, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (10, 'Szymon', 'Borowski', 'KARDIOLOG', 2, 4);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (11, 'Anna', 'Winna', 'KARDIOLOG', 1, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (12, 'Piotr', 'Olszewski', 'NEUROLOG', 1, 2);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (13, 'Aleksandra', 'Sikora', 'NEUROLOG', 3, 4);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (14, 'Ewa', 'Jaworska', 'OKULISTA', 4, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (15, 'Ewelina', 'Kubiak', 'OKULISTA', 2, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (16, 'Adam', 'Malinowski', 'OKULISTA', 2, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (17, 'Krzysztof', 'Nowacki', 'OKULISTA', 1,3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (18, 'Ewa', 'Pawlak', 'OKULISTA',2, 4);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (19, 'Anna', 'Mazowiecka', 'PEDIATRA',1,3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (20, 'Irena', 'Szewczyk', 'PEDIATRA',2,4);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (21, 'Katarzyna', 'Dudek', 'PSYCHIATRA',1,2);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (22, 'Jan', 'Nowak', 'PSYCHIATRA',4, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (23, 'Danuta', 'Walczak', 'PSYCHIATRA', 2,3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (24, 'Wanda', 'Majewska', 'STOMATOLOG', 1, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (25, 'Stefan', 'Majewski', 'STOMATOLOG', 4, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (26, 'Beata', 'Sadowska', 'STOMATOLOG', 2, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (27, 'Roman', 'Winny', 'STOMATOLOG', 1, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (28, 'Kamil', 'Jankowski', 'UROLOG', 2, 5);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (29, 'Robert', 'Mazurek', 'UROLOG', 1, 3);
-insert into Doctors (id, name, surname, specialization, day_On1, day_On2)
-values (30, 'Jakub', 'Wasilewski', 'UROLOG', 2, 4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values  (1, 'dr n. med.', 'Julianna', 'Kowalczuk ', 'ALERGOLOG', 2, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (2, 'lek.', 'Dawid', 'Kowalczyk ', 'ALERGOLOG',1, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (3, 'lek.','Emil', 'Lewandowski', 'DERMATOLOG', 2, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (4, 'dr', 'Ryszard', 'Rutkowski', 'DERMATOLOG', 3, 4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (5, 'lek.','Janina', 'Adamczyk', 'ENDOKRYNOLOG', 4, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (6, 'dr', 'Edward', 'Chmielewski', 'GINEKOLOG', 1, 2);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (7, 'prof. dr hab. n. med.','Zofia', 'Kossak', 'GINEKOLOG', 3, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (8, 'dr', 'Janusz', 'Walczuk', 'GINEKOLOG', 4, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (9, 'lek.','Janusz', 'Wieczorek', 'GINEKOLOG', 2, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (10, 'dr n. med.','Szymon', 'Borowski', 'KARDIOLOG', 2, 4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (11, 'prof. dr hab. n. med.','Anna', 'Winna', 'KARDIOLOG', 1, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (12, 'prof. dr hab. n. med.','Piotr', 'Olszewski', 'NEUROLOG', 1, 2);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (13, 'dr', 'Aleksandra', 'Sikora', 'NEUROLOG', 3, 4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (14, 'dr','Ewa', 'Jaworska', 'OKULISTA', 4, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (15, 'lek.','Ewelina', 'Kubiak', 'OKULISTA', 2, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (16, 'lek.','Adam', 'Malinowski', 'OKULISTA', 2, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (17, 'lek.','Krzysztof', 'Nowacki', 'OKULISTA', 1,3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (18, 'lek.','Ewa', 'Pawlak', 'OKULISTA',2, 4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (19, 'lek.','Anna', 'Mazowiecka', 'PEDIATRA',1,3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (20, 'dr n. med.','Irena', 'Szewczyk', 'PEDIATRA',2,4);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (21, 'lek.','Katarzyna', 'Dudek', 'PSYCHIATRA',1,2);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (22, 'lek.','Jan', 'Nowak', 'PSYCHIATRA',4, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (23, 'dr', 'Danuta', 'Walczak', 'PSYCHIATRA', 2,3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (24, 'lek.','Wanda', 'Majewska', 'STOMATOLOG', 1, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (25, 'lek.','Stefan', 'Majewski', 'STOMATOLOG', 4, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (26, 'lek.','Beata', 'Sadowska', 'STOMATOLOG', 2, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (27, 'lek.','Roman', 'Winny', 'STOMATOLOG', 1, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (28, 'lek.','Kamil', 'Jankowski', 'UROLOG', 2, 5);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (29, 'dr','Robert', 'Mazurek', 'UROLOG', 1, 3);
+insert into Doctors (id, degree, name, surname, specialization, day_On1, day_On2)
+values (30, 'dr hab. med.','Jakub', 'Wasilewski', 'UROLOG', 2, 4);
 
 insert into Appointments (id, specialization, type, price)
 values (1, 'ALERGOLOG', 'Konsultacja alergologiczna', 200);

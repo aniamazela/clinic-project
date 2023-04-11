@@ -9,15 +9,14 @@
 
 <div>
     <h2> Gratulacje! </h2>
-    <span>Full name:</span>
-    <p th:text="${#dates.format(booking.date, 'dd/MM/yyyy')}">
-        <p th
+    <p th:text="${#dates.format(booking.date, 'dd/MM/yyyy')}"></p><br/>
+    <p th:text="${booking.time}"></p>
         
 
 <!--    <span th:text="${booking.date}">-->
 <!--    day+'.'+booking.date.month+'.'+booking.date.year}">-->
 
-<p/><br/>
+
 
 <!--    <p th:text="${#dates.format(booking.date, 'dd/MM/yyyy')}"></p>-->
 </div>

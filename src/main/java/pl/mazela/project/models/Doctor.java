@@ -34,6 +34,9 @@ public class Doctor implements Serializable{
     private Long id;
     @Column
     @NonNull
+    private String degree;
+    @Column
+    @NonNull
     private String name;
     @Column
     private String surname;

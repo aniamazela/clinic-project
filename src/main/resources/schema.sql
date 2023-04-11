@@ -2,6 +2,7 @@ drop table Doctors;
 
 create table if not exists Doctors (
     id identity,
+    degree VARCHAR(50) not null,
     name VARCHAR(50) not null,
     surname VARCHAR(50) not null,
     specialization VARCHAR(25),
@@ -18,7 +19,11 @@ create table if not exists Appointments (
 
 create table if not exists Bookings (
     id identity,
-    date DATE
+    pacient VARCHAR(50),
+    id_Doctor VARCHAR(3),
+    date DATE,
+    time TIME,
+    type VARCHAR(50)
 );
 
 

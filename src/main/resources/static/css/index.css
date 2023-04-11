@@ -31,16 +31,6 @@ body{
     width: 100%;
 }
 
-/* .footer {
-
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(117, 133, 138);
-    color: white;
-    text-align: center;
-} */
-
 .right {
     position: absolute;
     text-align: center;
@@ -65,7 +55,6 @@ input[type=text], input[type=password] {
     margin: 1px 0px 6px;
     display: inline-block;
     border: 1px solid #ccc;
-    
   }
 
   .btn-primary {
@@ -75,7 +64,6 @@ input[type=text], input[type=password] {
     border-radius: 7px;
     margin: 5px;
     font-size: large;
-
 }
 
 .card {
@@ -94,7 +82,3 @@ input[type=text], input[type=password] {
     border-radius: 0;
     color: white;
 }
-
-
-
-

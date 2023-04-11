@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Moja e-przychodnia</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+    <div class="right">
+        <form th:action="@{/doctor/{id}/{nameAndSurname}/{date}/time (id=${doctor.id}, 
+            nameAndSurname=${doctor.name}+${doctor.surname})}">
+            <h1 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h1>
+            <h1 th:text="${date}" th:name="date" th:value="#{date}"></h1>
+            <!-- <b>
+            <h1 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h1>
+        </b> -->
+            <!-- <h3 th:text="'specjalizacja:  '+${doctor.specialization}"></h3> -->
+            <!-- <p th:text="${booking.date}"></p> -->
+            <!-- <p th:text="'Planowana data wizyty to: '+ ${#dates.format(booking.date, 'dd/MM/yyyy')}"></p><br/>
+                   <select id="bookingTime" th:field="*{time}"> -->
+            <select id="bookingTime" th:value="${time}" th:name="time">
+                <option th:text="15.00"></option>
+                <option th:text="15.30"></option>
+                <option th:text="16.00"></option>
+
+            </select>
+            <button type="submit" class="button">Wybierz typ wizyty>></button>
+    </div>
+
+    <!-- <div class="right">
+
+        <p th:text="${date}"></p>
+        <!-- <p th:text="${#dates.format(booking.date, 'dd/MM/yyyy')}"></p><br/> -->
+    <!-- <form action="#" th:action="@{/booking}" method="post" th:object="${booking}">
+            <label>Wybierz date</label>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <input type="text" id="datepicker" th:field="*{date}" placeholder="Wybierz datę wizyty."/> -->
+
+
+    <!-- <input type="date" th:field="*{date}" th:max="${maxDate}" th:min="${minDate}" onclick="showTime()" /> -->
+
+
+
+    <!-- <div th:switch="${doctor.dayOn1}">
+                <p th:case="'1'">Pon</p>
+                <p th:case="'2'">Wt</p>
+                <p th:case="'3'">sr</p>
+                <p th:case="'4'">czw</p>
+                <p th:case="'5'">Pt</p>
+            </div> -->
+
+    <!-- <div sec:authorize="hasRole('USER')">Text visible to user.</div> -->
+    <!--             <span th:if="${user.hasRole('USER')}" >
+                <button type="submit" class="button" disabled="disabled">Submit</button>
+            </span>
+            <span th:unless="${user.hasRole('USER')}" >
+                <button type="submit" class="button">Submit</button>
+            </span> -->
+
+    <!-- <div class="form-group" th:if="${#authorization.expression('hasRole(''USER'')')}">
+                <button type="submit" class="button">Submit</button>
+            </div>
+            <div class="form-group" th:unless="${#authorization.expression('hasRole(''USER'')')}">
+                <button type="submit" class="button" disabled="disabled">Submit</button>
+            </div> -->
+
+    <!-- </form> -->
+
+
+    <!-- <table> -->
+    <!-- <tr>
+                <th>Typ wizyty</th>
+                <th>Cena wizyty</th>
+            </tr>
+            <tr th:each="appointment: ${appointments}"
+                th:if="${appointment.specialization.equals(doctor.specialization)}">
+                <td> <input type="checkbox"> <label th:text="${appointment.type}"></label></td>
+                <td th:text="${appointment.price}"></td>
+
+
+            </tr> -->
+
+
+    <!-- </table> -->
+
+    <!-- </div> --> -->
+
+
+
+
+
+    <!-- <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: +1,
+                firstDay: 1,
+                maxDate: +32,
+                beforeShowDay: function (d) {
+                    var day = d.getDay();
+                    var day1 = "[[${day1}]]";
+                    var day2 = "[[${day2}]]";
+                    // return [day != 0 && day != 1 && day != 2 && day != 3];
+                    return [day == day1 || day==day2];
+                },
+            });
+        });
+    </script> -->
+
+
+</body>
+
+</html>
