@@ -36,7 +36,7 @@ public class Booking implements Serializable {
   // private Calendar date;
 
   private Long idDoctor;
-  
+
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date date;
 
@@ -44,7 +44,14 @@ public class Booking implements Serializable {
   private LocalTime time;
 
   private String type;
+  @Enumerated(EnumType.STRING)
+  private Status status;
 
-  
-
+  public static boolean isFree(Booking booking) {
+    if (booking.getStatus().equals(Status.saved)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

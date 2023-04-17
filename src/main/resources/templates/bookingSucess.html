@@ -17,28 +17,39 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <style>
+        .glyphicon {
+            font-size: 100px;
+            display: block;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <header th:insert="fragments/general.html :: header"> </header>
     <div th:insert="fragments/general.html :: sec1"> </div>
     <div class="right">
-
-        <form method="post" th:action="@{/sucess/{bid} (bid=${booking.id})}" >
-        <h2 style="text-decoration: underline;">Szczegóły wizyty:</h2>
-        <h2 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h2>
-        <h4 th:text="'specjalizacja:  '+${doctor.specialization}"></h4>
-        <h4 th:text="'Data wizyty:  '+${#dates.format(booking.date, 'dd.MM.yyyy')}"></h4>
-        <h4 th:text="'Godzina wizyty:  '+${booking.time}"></h4>
-        <h4 th:text="'Typ wizyty:  '+${booking.type}"></h4>
         <br>
-        <input type="submit" class="btn btn-link" value="Umów wizytę"/>
-    </form>
-
-        </div>
-
+        <p> <span class="glyphicon glyphicon-ok-circle"></span></p>    
+        <h1> Wizyta została umówiona!</h1>
+        <h5>Przekierowanie na stronę główną nastąpi za <span id="counter"> 15 </span> sekund. 
+            Kliknij poniżej, aby przejść do strony głównej: </h5>
+            <a th:href="@{/}" class="btn btn-primary">Wróć do strony głównej.</a>
     </div>
 </body>
 
+<script>
+    setInterval(function () {
+        var div = document.querySelector("#counter");
+        var count = div.textContent * 1 - 1;
+        div.textContent = count;
+        if (count <= 0) {
+            document.getElementById("counter").innerHTML = "0";
+            window.location.replace("/");
+        }
+        
+    }, 1000);
+</script>
 
 </html>

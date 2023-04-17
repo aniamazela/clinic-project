@@ -12,17 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
     <style>
-        tr {
-            border-bottom: 1px solid darkslategray;
-        }
-        th{
+        th {
             text-align: center;
+        }
+
+        .table {
+            table-layout: fixed;
+            width: 100%;
+
         }
     </style>
 </head>
@@ -33,60 +38,48 @@
     <div class="right">
 
         <form method="post" th:action="@{/confirm/{bid}(bid=${booking.id})}">
-            <table style="font-size: 14px;">
-                <tr>
-                    <th>Typ wizyty</th>
-                    <th>Cena wizyty</th>
-                </tr>
-                <tr th:each="appointment: ${appointments}" th:if="${appointment.specialization.equals(specialization)}">
-                    <td> <input type="checkbox" th:name="type" th:value="${appointment.type}" onclick="onlyOne(this)">
-                        <label th:text="${appointment.type}"></label>
-                    </td>
-                    <td th:text="${appointment.price}"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit" class="btn btn-link"> Potwierdz wizytę</button>
-                    </td>
-                </tr>
+            <h2 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h2>
+            <h4 th:text="'specjalizacja:  '+${doctor.specialization}"></h4>
+            <h4 th:text="'Data wizyty:  '+${#dates.format(booking.date, 'dd.MM.yyyy')}"></h4>
+            <h4 th:text="'Godzina wizyty:  '+${booking.time}"></h4><br>
+            <table class="table table-striped" style="font-size: 14px;">
+                <thead>
+                    <tr style="background-color: #ccc;">
+                        <th></th>
+                        <th>Typ wizyty</th>
+                        <th>Cena wizyty</th>
+                    </tr>
+                </thead>
+                <tbody>
 
+
+                    <tr style="border: 1px solid #ccc" th:each="appointment: ${appointments}"
+                        th:if="${appointment.specialization.equals(specialization)}">
+
+                        <td> <input type="radio" th:name="type" th:value="${appointment.type}">
+                        </td>
+                        <td>
+                            <label th:text="${appointment.type}" style="font-weight: normal;"
+                            
+                            ></label>
+                        </td>
+                        <td th:text="${#numbers.formatDecimal(appointment.price,3,2,'COMMA')}"
+                      ></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br>
+                            <button type="submit" class="btn btn-primary" style="width:100%">
+                                Kliknij aby potwierdzić wizytę <br />i zobaczyć szczegóły.</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </form>
 
     </div>
 
-    <!-- <h1 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h1>
-        <h3 th:text="'specjalizacja:  '+${doctor.specialization}"></h3> -->
-    <!-- <h3 th:text="'Data wizyty:  '+${booking.date}"></h3>
-        <form method="post" th:action="updateTime">
-            <select id="bookingTime" th:name="time">
-                <option th:value="15.00" th:text="15.00"></option>
-                <option th:value="15.30" th:text="15.30"></option>
-                <option th:value="16.00" th:text="16.00"></option>
-            </select>
-            <input type="submit" class="btn btn-link" value="Wybierz typ wizyty"/>
-        </form> -->
-
-    <!-- <form method="post" th:action="@{/updateBooking}">
-            <h1 th:text="'booking: '+${booking.id}"></h1>
-            <input type="hidden" th:name="bid" th:value="${booking.id}" />
-            <label>Wybierz datę wizyty: </label>
-            <span class="glyphicon glyphicon-calendar"></span>
-            <input type="text" id="datepicker" placeholder="Wybierz datę wizyty." th:name="date" />
-            <input type="submit" class="btn btn-link" value="Wybierz godzinę wizyty" />
-        </form> -->
     </div>
 </body>
 
-<script>
-
-    function onlyOne(checkbox) {
-        var checkboxes = document.getElementsByName('type')
-        checkboxes.forEach((item) => {
-            if (item !== checkbox) item.checked = false
-        })
-    }
-
-</script>
 
 </html>

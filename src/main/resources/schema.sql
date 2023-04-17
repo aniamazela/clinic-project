@@ -1,4 +1,5 @@
 drop table Doctors;
+drop table Appointments;
 
 create table if not exists Doctors (
     id identity,
@@ -10,7 +11,6 @@ create table if not exists Doctors (
     day_On2 integer
     );
     
-drop table Appointments;
 create table if not exists Appointments (
     id identity,
     specialization VARCHAR(25),
