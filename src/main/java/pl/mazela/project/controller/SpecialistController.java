@@ -161,12 +161,4 @@ public class SpecialistController {
     // return "specialist_time";
     // }
 
-    // @GetMapping("/doctor/{id}/{nameAndSurname}/{date}")
-    // public String saveDateAndChooseTime(Model model, @RequestParam String date,
-    // @PathVariable Long id,
-    // @RequestParam Long did){
-    // model.addAttribute("doctor", doctorRepo.findById(did).orElse(null));
-    // model.addAttribute("date", date);
-    // return "specialist_time";
-    // }
 }
