@@ -1,7 +1,7 @@
 package pl.mazela.project.repositories;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,5 +13,6 @@ import pl.mazela.project.models.Specialization;
 public interface DoctorRepository extends JpaRepository<Doctor, Long>{
     List<Doctor> findBySpecializationIs(Specialization specialization); 
     List<Doctor> findByName(String name);
+    Optional<Doctor> findById(Long id);
 
 }

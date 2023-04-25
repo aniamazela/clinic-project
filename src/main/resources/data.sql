@@ -64,11 +64,11 @@ values (1, 'ALERGOLOG', 'Konsultacja alergologiczna', 200);
 insert into Appointments (id, specialization, type, price)
 values (2, 'ALERGOLOG', 'Konsultacja alergologiczna dzieci', 200);
 insert into Appointments (id, specialization, type, price)
-values (3, 'ALERGOLOG', 'Konsultacja alergologiczna + testy skórne', 350);
+values (3, 'ALERGOLOG', 'Konsultacja alergologiczna + testy skorne', 350);
 insert into Appointments (id, specialization, type, price)
 values (4, 'ALERGOLOG', 'Odczulanie', 150);
 insert into Appointments (id, specialization, type, price)
-values (5, 'ALERGOLOG', 'Testy skórne', 250);
+values (5, 'ALERGOLOG', 'Testy skorne', 250);
 insert into Appointments (id, specialization, type, price)
 values (6, 'DERMATOLOG', 'Konsultacja dermatologiczna', 200);
 insert into Appointments (id, specialization, type, price)
@@ -78,9 +78,9 @@ values (8, 'DERMATOLOG', 'Konsultacja z zakresu medycyny estetycznej', 300);
 insert into Appointments (id, specialization, type, price)
 values (9, 'DERMATOLOG', 'Badania histopatologiczne', 200);
 insert into Appointments (id, specialization, type, price)
-values (10, 'DERMATOLOG', 'Usuwanie przebarwień', 1500);
+values (10, 'DERMATOLOG', 'Usuwanie przebarwien', 1500);
 insert into Appointments (id, specialization, type, price)
-values (11, 'DERMATOLOG', 'Biopsja skóry z badaniem histopatologicznym', 300);
+values (11, 'DERMATOLOG', 'Biopsja skory z badaniem histopatologicznym', 300);
 insert into Appointments (id, specialization, type, price)
 values (12, 'ENDOKRYNOLOG', 'Konsultacja endokrynologiczna', 200);
 insert into Appointments (id, specialization, type, price)
@@ -100,11 +100,11 @@ values (19, 'GINEKOLOG', 'Konsultacja ginekologiczna + cytologia', 250);
 insert into Appointments (id, specialization, type, price)
 values (20, 'GINEKOLOG', 'Konsultacja ginekologiczna + USG + cytologia', 300);
 insert into Appointments (id, specialization, type, price)
-values (21, 'GINEKOLOG', 'Konsultacja położnicza', 200);
+values (21, 'GINEKOLOG', 'Konsultacja poloznicza', 200);
 insert into Appointments (id, specialization, type, price)
 values (22, 'GINEKOLOG', 'Szczepienie przeciw HPV', 600);
 insert into Appointments (id, specialization, type, price)
-values (23, 'GINEKOLOG', 'USG wczesnej ciąży', 200);
+values (23, 'GINEKOLOG', 'USG wczesnej ciazy', 200);
 insert into Appointments (id, specialization, type, price)
 values (24, 'GINEKOLOG', 'Biopsja piersi', 350);
 insert into Appointments (id, specialization, type, price)
@@ -128,9 +128,9 @@ values (33, 'OKULISTA', 'Badania dna oka', 200);
 insert into Appointments (id, specialization, type, price)
 values (34, 'OKULISTA', 'Diagnostyka jaskry', 250);
 insert into Appointments (id, specialization, type, price)
-values (35, 'OKULISTA', 'Usuwanie ciał obcych', 200);
+values (35, 'OKULISTA', 'Usuwanie cial obcych', 200);
 insert into Appointments (id, specialization, type, price)
-values (36, 'OKULISTA', 'Badanie okulistyczne kierowców', 200);
+values (36, 'OKULISTA', 'Badanie okulistyczne kierowcow', 200);
 insert into Appointments (id, specialization, type, price)
 values (37, 'PEDIATRA', 'Konsultacja pediatryczna', 200);
 insert into Appointments (id, specialization, type, price)
@@ -140,20 +140,20 @@ values (39, 'STOMATOLOG', 'Badanie profilaktyczne', 150);
 insert into Appointments (id, specialization, type, price)
 values (40, 'STOMATOLOG', 'Konsultacja chirurgiczna', 200);
 insert into Appointments (id, specialization, type, price)
-values (41, 'STOMATOLOG', 'Usunięcie zęba', 400);
+values (41, 'STOMATOLOG', 'Usuniecie zeba', 400);
 insert into Appointments (id, specialization, type, price)
-values (42, 'STOMATOLOG', 'Chirurgiczne usunięcie zęba', 750);
+values (42, 'STOMATOLOG', 'Chirurgiczne usuniecie zeba', 750);
 insert into Appointments (id, specialization, type, price)
-values (43, 'STOMATOLOG', 'Leczenie kanałowe', 450);
+values (43, 'STOMATOLOG', 'Leczenie kanalowe', 450);
 insert into Appointments (id, specialization, type, price)
 values (44, 'STOMATOLOG', 'Piaskowanie', 300);
 insert into Appointments (id, specialization, type, price)
-values (45, 'STOMATOLOG', 'Usuwanie kamienia nazębnego', 450);
+values (45, 'STOMATOLOG', 'Usuwanie kamienia nazebnego', 450);
 insert into Appointments (id, specialization, type, price)
-values (46, 'STOMATOLOG', 'Wybielanie zębów', 1250);
+values (46, 'STOMATOLOG', 'Wybielanie zebow', 1250);
 insert into Appointments (id, specialization, type, price)
 values (47, 'UROLOG', 'Konsultacja urologiczna', 200);
 insert into Appointments (id, specialization, type, price)
-values (48, 'UROLOG', 'USG układu moczowego', 200);
+values (48, 'UROLOG', 'USG ukladu moczowego', 200);
 insert into Appointments (id, specialization, type, price)
 values (49, 'UROLOG', 'USG prostaty', 200);

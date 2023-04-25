@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Moja e-przychodnia</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+    <div class="right">
+        <p>Oczekujące wizyty</p>
+        <span th:text="${today}"></span>
+        <span th:each="booking : ${bookings}"
+        th:object="${booking}"
+        th:if="${#dates.createNow().before(booking.date)} " th:text="${booking.date}"
+        >
+
+        
+        </span>
+        <!-- <table class="table table-striped">
+            <thead>
+                <tr style="background-color: #ccc; text-align: center;">
+                <th>Dzień wizyty</th>
+                <th>Godzina wizyty</th>
+                <th>Lekarz prowadzący</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody> 
+                <tr th:each="booking : ${bookings}" style="border: 2px solid #ccc; text-align: center;">
+                    <td>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <span th:if="${bookings.date.before(#dates.createNow())}">
+
+        </span> -->
+        <p>Zakończone wizyty</p>
+        <p>odwołane wizyty</p>
+        <table class="table table-striped">
+            <thead>
+                <tr style="background-color: #ccc; text-align: center;">
+                <th>Dzień wizyty</th>
+                <th>Godzina wizyty</th>
+                <th>Lekarz prowadzący</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="booking : ${bookings}" style="border: 2px solid #ccc; text-align: center;">
+                    <td th:text="${#dates.format(booking.date, 'dd.MM.yyyy')}">
+                    <td th:text="${booking.time}"></td>
+                    <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
+                    <td><button>odwołaj wizytę</button></td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

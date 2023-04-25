@@ -116,7 +116,7 @@ public class SpecialistController {
        model.addAttribute("booking", bookingRepo.findById(bid).orElse(null));
        model.addAttribute("doctor", doctorRepo.findById(bookingRepo.findById(bid).orElse(null).getIdDoctor()).get());
        model.addAttribute("specialization", doctorRepo.findById(bookingRepo.findById(bid).orElse(null).getIdDoctor()).get().getSpecialization());
-       booking.setTime(time.withNano(0));
+       booking.setTime(time);
         bookingRepo.save(booking);
        model.addAttribute("appointments", appointmentRepo.findAll());
         return "bookingType";
@@ -142,16 +142,6 @@ public class SpecialistController {
     }
 
 
-    // @PostMapping("/doctor/{id}/{nameAndSurname}/{date}")
-    // public String createBooking(@ModelAttribute("booking") Booking booking, Model
-    // model,
-    // @RequestParam Long id, @RequestParam String date) {
-    // bookingRepo.save(booking);
-    // model.addAttribute("doctor", doctorRepo.findById(id).orElse(null));
-    // model.addAttribute("date", date);
-    // return "specialist_time";
-    // }
-
     // @PostMapping ("/bookingTime")
     // public String chooseTime(@ModelAttribute("booking") Booking booking,
     // Model model, User user, Doctor doctor){
@@ -161,12 +151,4 @@ public class SpecialistController {
     // return "specialist_time";
     // }
 
-    // @GetMapping("/doctor/{id}/{nameAndSurname}/{date}")
-    // public String saveDateAndChooseTime(Model model, @RequestParam String date,
-    // @PathVariable Long id,
-    // @RequestParam Long did){
-    // model.addAttribute("doctor", doctorRepo.findById(did).orElse(null));
-    // model.addAttribute("date", date);
-    // return "specialist_time";
-    // }
 }
