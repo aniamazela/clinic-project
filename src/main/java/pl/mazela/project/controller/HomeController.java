@@ -1,7 +1,5 @@
 package pl.mazela.project.controller;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -44,7 +42,7 @@ public class HomeController {
         String pacient = user.getUsername();
         model.addAttribute("bookings", bookingRepo.findAllByPacient(pacient));
         model.addAttribute("doctorRepo", doctorRepo);
-        SimpleDateFormat DateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        // SimpleDateFormat DateFormat = new SimpleDateFormat("dd.MM.yyyy");
         model.addAttribute("today", new Date());
         return "myBooking";
     }
