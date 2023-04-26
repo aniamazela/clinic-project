@@ -23,7 +23,8 @@ create table if not exists Bookings (
     id_Doctor VARCHAR(3),
     date DATE,
     time TIME,
-    type VARCHAR(50)
+    type VARCHAR(50),
+    status VARCHAR(50)
 );
 
 

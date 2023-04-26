@@ -157,3 +157,4 @@ insert into Appointments (id, specialization, type, price)
 values (48, 'UROLOG', 'USG ukladu moczowego', 200);
 insert into Appointments (id, specialization, type, price)
 values (49, 'UROLOG', 'USG prostaty', 200);
+delete from Bookings where status='inProgress';

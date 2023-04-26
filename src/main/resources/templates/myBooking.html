@@ -29,12 +29,15 @@
         <span th:text="${today}"></span>
         <span th:each="booking : ${bookings}"
         th:object="${booking}"
-        th:if="${#dates.createNow().before(booking.date)} " th:text="${booking.date}"
+        th:text="${booking.date}"
+     
         >
 
-        
         </span>
+        </span>
+        <span ></span>
         <!-- <table class="table table-striped">
+   th:if="${#dates.createNow().before(booking.date)} " th:text="${booking.date}"
             <thead>
                 <tr style="background-color: #ccc; text-align: center;">
                 <th>Dzień wizyty</th>
