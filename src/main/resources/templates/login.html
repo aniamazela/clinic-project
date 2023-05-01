@@ -23,8 +23,9 @@
     </div>
 
     <div class="right">
-        <div th:if="${error}">
-            Unable to login. Check your username and password.
+        <br>
+        <div th:if="${param.error}" class="error">
+            Podany login lub/i hasło są nieprawidłowe. <br> Spróbuj jeszcze raz.
         </div>
         <h3>Zaloguj się</h3>
         <table>

@@ -22,8 +22,9 @@
         .right {
             margin-top: 125px;
         }
-        .section1{
-            background-color: #3e4b56 ;
+
+        .section1 {
+            background-color: #3e4b56;
             color: white;
             width: 100%;
             text-align: right;
@@ -48,12 +49,14 @@
             <div>
                 <h2>Umów wizytę już teraz!</h2>
             </div>
-            <h3><a th:href="@{/login}" class="btn btn-primary">Zaloguj się</a></h3>
-            <h3> <a th:href="@{/register}" class="btn btn-primary">Zarejestruj się</a></h3>
-            <a th:if="${#authorization.expression('!isAuthenticated()')}">
-            <h3> <a th:href="@{/doctors?page=1}" class="btn btn-primary">Przeglądaj bez logowania</a></h3></a>
-            <a th:if="${#authorization.expression('isAuthenticated()')}">
+            <div sec:authorize="!isAuthenticated()">
+                <h3><a th:href="@{/login}" class="btn btn-primary">Zaloguj się</a></h3>
+                <h3> <a th:href="@{/register}" class="btn btn-primary">Zarejestruj się</a></h3>
+                <h3> <a th:href="@{/doctors?page=1}" class="btn btn-primary">Przeglądaj bez logowania</a></h3></a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
                 <h3> <a th:href="@{/doctors?page=1}" class="btn btn-primary">Umów wizytę</a></h3></a>
+            </div>
         </div>
     </div>
 

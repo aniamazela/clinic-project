@@ -2,10 +2,14 @@ package pl.mazela.project.controller;
 
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.mazela.project.models.User;
@@ -31,7 +35,7 @@ public class HomeController {
     }  
 
     @GetMapping("/login")
-    public String registerForm(Model model) {
+    public String registerForm(Model model, @Valid User user, Errors errors) {
         model.addAttribute("user", new User());
         return "login";
     }
