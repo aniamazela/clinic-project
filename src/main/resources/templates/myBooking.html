@@ -25,48 +25,30 @@
     <header th:insert="fragments/general.html :: header"> </header>
     <div th:insert="fragments/general.html :: sec1"> </div>
     <div class="right">
-        <p>Oczekujące wizyty</p>
-        <span th:text="${today}"></span>
-        <span th:each="booking : ${bookings}"
-        th:object="${booking}"
-        th:text="${booking.date}"
-     
-        >
+        <nav class="navbar navbar-inverse" style="width: 100%;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <form method="get" th:action="showBookingAfterToday">
+                        <button type="submit">Oczekujące wizyty</button>
+                    </form>
+                    <form method="get" th:action="showBookingBeforeToday">
+                        <button type="submit">Zakończone wizyty</button>
+                    </form>
+                    <form method="get" th:action="showDeleted">
+                        <button type="submit">Odwołane wizyty</button>
+                    </form>
 
-        </span>
-        </span>
-        <span ></span>
-        <!-- <table class="table table-striped">
-   th:if="${#dates.createNow().before(booking.date)} " th:text="${booking.date}"
-            <thead>
-                <tr style="background-color: #ccc; text-align: center;">
-                <th>Dzień wizyty</th>
-                <th>Godzina wizyty</th>
-                <th>Lekarz prowadzący</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody> 
-                <tr th:each="booking : ${bookings}" style="border: 2px solid #ccc; text-align: center;">
-                    <td>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <span th:if="${bookings.date.before(#dates.createNow())}">
-
-        </span> -->
-        <p>Zakończone wizyty</p>
-        <p>odwołane wizyty</p>
+                </ul>
+            </div>
+        </nav>
         <table class="table table-striped">
             <thead>
                 <tr style="background-color: #ccc; text-align: center;">
-                <th>Dzień wizyty</th>
-                <th>Godzina wizyty</th>
-                <th>Lekarz prowadzący</th>
-                <th></th>
-            </tr>
+                    <th>Dzień wizyty</th>
+                    <th>Godzina wizyty</th>
+                    <th>Lekarz prowadzący</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 <tr th:each="booking : ${bookings}" style="border: 2px solid #ccc; text-align: center;">
@@ -80,6 +62,85 @@
                 </tr>
             </tbody>
         </table>
+
+
+
+
+
+
+        <!-- <p>Oczekujące wizyty</p>
+        <table class="table table-striped">
+            <thead>
+                <tr style="background-color: #ccc; text-align: center;">
+                    <th>Dzień wizyty</th>
+                    <th>Godzina wizyty</th>
+                    <th>Lekarz prowadzący</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="booking : ${bookings}" th:if="${today.before(booking.date)}"
+                    style="border: 2px solid #ccc; text-align: center;">
+                    <td th:text="${#dates.format(booking.date, 'dd.MM.yyyy')}">
+                    <td th:text="${booking.time}"></td>
+                    <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
+                    <td><button>odwołaj wizytę</button></td>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+
+
+        <!-- <p>Zakończone wizyty</p>
+        <table class="table table-striped">
+            <thead>
+                <tr style="background-color: #ccc; text-align: center;">
+                    <th>Dzień wizyty</th>
+                    <th>Godzina wizyty</th>
+                    <th>Lekarz prowadzący</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="booking : ${bookings}" th:if="${booking.date.before(today)}"
+                    style="border: 2px solid #ccc; text-align: center;">
+                    <td th:text="${#dates.format(booking.date, 'dd.MM.yyyy')}">
+                    <td th:text="${booking.time}"></td>
+                    <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
+                    <td><button>Szczegóły wizyty</button></td>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+
+        <!-- <p>odwołane wizyty</p>
+        <table class="table table-striped">
+            <thead>
+                <tr style="background-color: #ccc; text-align: center;">
+                    <th>Dzień wizyty</th>
+                    <th>Godzina wizyty</th>
+                    <th>Lekarz prowadzący</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="booking : ${bookings}" 
+                th:if="${booking.status==T(pl.mazela.project.models.Status).deleted}"
+                style="border: 2px solid #ccc; text-align: center;">
+                    <td th:text="${#dates.format(booking.date, 'dd.MM.yyyy')}">
+                    <td th:text="${booking.time}"></td>
+                    <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
+                    <td><button>odwołaj wizytę</button></td>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
 
     </div>
 </body>
