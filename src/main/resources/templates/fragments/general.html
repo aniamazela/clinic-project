@@ -45,13 +45,6 @@
                                         <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a th:href="@{/myBooking}"><span class="glyphicon glyphicon-info-sign"></span>Moje wizyty</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Wyloguj się</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>
-                                                Jesteś zalogowany jako: <span sec:authentication="name"></span>
-                                            </a></li>
-            
-            
-            
                                         <li>
                                             <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
                                                 <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Wyloguj
@@ -60,9 +53,6 @@
                                             <form style="visibility: hidden" id="form" method="post" action="#"
                                                 th:action="@{/logout}"></form>
                                         </li>
-            
-            
-            
                                     </ul>
                                 </li>
                             </ul>

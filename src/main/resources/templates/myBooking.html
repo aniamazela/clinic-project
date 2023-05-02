@@ -57,7 +57,10 @@
                     <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
                         +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
                         +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
-                    <td><button>odwołaj wizytę</button></td>
+                    <td>
+                        <form method="get" action="deleteBooking">
+                            <button th:name="bid" th:value="${booking.id}">odwołaj wizytę</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>

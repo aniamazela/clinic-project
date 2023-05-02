@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.mazela.project.models.Booking;
 import pl.mazela.project.models.Status;
@@ -30,6 +32,8 @@ public class HomeController {
     
     BookingRepository bookingRepo;
     DoctorRepository doctorRepo;
+    // User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    // String pacient = user.getUsername();
     
     @GetMapping
     public String home(){
@@ -80,6 +84,20 @@ public class HomeController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String pacient = user.getUsername();
         model.addAttribute("bookings", bookingRepo.findByStatusForPacient(Status.deleted, pacient));
+        model.addAttribute("doctorRepo", doctorRepo);
+        return "myBooking";
+    }
+
+    @GetMapping("deleteBooking")
+    public String deleteMyBooking(Model model, @ModelAttribute Booking booking, @RequestParam Long bid){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String pacient = user.getUsername();
+        booking = bookingRepo.findById(bid).orElse(null);
+        booking.setStatus(Status.deleted);
+        bookingRepo.save(booking);
+        model.addAttribute("bookings", 
+        bookingRepo.findByDateisBeforeTodayForPacient(pacient, Sort.by("date").
+        ascending().and(Sort.by("time"))));
         model.addAttribute("doctorRepo", doctorRepo);
         return "myBooking";
     }
