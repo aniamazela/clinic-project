@@ -36,14 +36,8 @@
 
 <body>
     <header th:insert="fragments/general.html :: header"> </header>
-    <div class="section1">
-        <div sec:authorize="isAnonymous()">
-            Nie jesteś zalogowany.
-        </div>
-        <div sec:authorize="isAuthenticated()">
-            Jesteś zalogowany jako: <b><span sec:authentication="name"></span></b>
-        </div>
-    </div>
+    <div th:insert="fragments/general.html :: sec1"> </div>
+
     <div class="myBackground">
         <div class="right">
             <div>

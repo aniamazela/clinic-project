@@ -87,3 +87,8 @@ input[type=text], input[type=password] {
     color: red;
     font-style: italic;
 }
+
+.btn-secondary{
+    border-radius: 0px;
+    font-size: small;
+}

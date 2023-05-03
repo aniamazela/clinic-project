@@ -54,28 +54,33 @@ public class HomeController {
         model.addAttribute("doctorRepo", doctorRepo);
         // SimpleDateFormat DateFormat = new SimpleDateFormat("dd.MM.yyyy");
         model.addAttribute("today", new Date());
+        model.addAttribute("KindfOfBooking", "Zakończone wizyty");
         return "myBooking";
     }
 
-    @GetMapping("showBookingAfterToday")
+    @GetMapping("showBookingAfterNow")
     public String showMyBookingsAfterToday(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String pacient = user.getUsername();
         model.addAttribute("bookings", 
-        bookingRepo.findByDateisAfterTodayForPacient(pacient, Sort.by("date").
+        bookingRepo.findByDateisAfterNowForPacient(pacient, Sort.by("date").
         ascending().and(Sort.by("time"))));
         model.addAttribute("doctorRepo", doctorRepo);
+        model.addAttribute("KindfOfBooking", "Oczekujące wizyty");
+        model.addAttribute("buttonName", "odwołaj wizytę");
         return "myBooking";
     }
     
-    @GetMapping("showBookingBeforeToday")
+    @GetMapping("showBookingBeforeNow")
     public String showMyBookingsBeforeToday(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String pacient = user.getUsername();
         model.addAttribute("bookings", 
-        bookingRepo.findByDateisBeforeTodayForPacient(pacient, Sort.by("date").
+        bookingRepo.findByDateisBeforeNowForPacient(pacient, Sort.by("date").
         ascending().and(Sort.by("time"))));
         model.addAttribute("doctorRepo", doctorRepo);
+        model.addAttribute("KindfOfBooking", "Zakończone wizyty");
+        model.addAttribute("buttonName", "szczegóły wizyty");
         return "myBooking";
     }
 
@@ -83,8 +88,12 @@ public class HomeController {
     public String showMyBookingsDeleted(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String pacient = user.getUsername();
-        model.addAttribute("bookings", bookingRepo.findByStatusForPacient(Status.deleted, pacient));
+        model.addAttribute("bookings", bookingRepo.findByStatusForPacient(Status.deleted, pacient,
+        Sort.by("date").
+        ascending().and(Sort.by("time"))));
         model.addAttribute("doctorRepo", doctorRepo);
+        model.addAttribute("KindfOfBooking", "Odwołane wizyty");
+        model.addAttribute("buttonName", "szczegóły wizyty");
         return "myBooking";
     }
 
@@ -96,9 +105,11 @@ public class HomeController {
         booking.setStatus(Status.deleted);
         bookingRepo.save(booking);
         model.addAttribute("bookings", 
-        bookingRepo.findByDateisBeforeTodayForPacient(pacient, Sort.by("date").
+        bookingRepo.findByDateisAfterNowForPacient(pacient, Sort.by("date").
         ascending().and(Sort.by("time"))));
         model.addAttribute("doctorRepo", doctorRepo);
+        model.addAttribute("KindfOfBooking", "Oczekujące wizyty");
+        model.addAttribute("buttonName", "odwołaj wizytę");
         return "myBooking";
     }
     

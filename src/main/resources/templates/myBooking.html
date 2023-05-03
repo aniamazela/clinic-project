@@ -9,11 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,22 +23,27 @@
     <header th:insert="fragments/general.html :: header"> </header>
     <div th:insert="fragments/general.html :: sec1"> </div>
     <div class="right">
-        <nav class="navbar navbar-inverse" style="width: 100%;">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <form method="get" th:action="showBookingAfterToday">
-                        <button type="submit">Oczekujące wizyty</button>
-                    </form>
-                    <form method="get" th:action="showBookingBeforeToday">
-                        <button type="submit">Zakończone wizyty</button>
-                    </form>
-                    <form method="get" th:action="showDeleted">
-                        <button type="submit">Odwołane wizyty</button>
-                    </form>
 
-                </ul>
+
+        <div class="btn-group btn-group-justified" style="padding-bottom: 25px;">
+            <div class="btn-group">
+                <form method="get" th:action="showBookingAfterNow">
+                    <button type="submit" class="btn btn-primary btn-sm">Oczekujące <br> wizyty</button>
+                </form>
             </div>
-        </nav>
+            <div class="btn-group">
+                <form method="get" th:action="showBookingBeforeNow">
+                    <button type="submit" class="btn btn-primary btn-sm">Zakończone <br> wizyty</button>
+                </form>
+            </div>
+            <div class="btn-group">
+                <form method="get" th:action="showDeleted">
+                    <button type="submit" class="btn btn-primary btn-sm">Odwołane <br> wizyty</button>
+                </form>
+            </div>
+        </div>
+
+        <h2 th:text="${KindfOfBooking}" style="font-weight: bold;"></h2>
         <table class="table table-striped">
             <thead>
                 <tr style="background-color: #ccc; text-align: center;">
@@ -56,10 +59,13 @@
                     <td th:text="${booking.time}"></td>
                     <td th:text="${doctorRepo.findById(booking.idDoctor).get().getDegree()
                         +' '+ doctorRepo.findById(booking.idDoctor).get().getName() 
-                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()}"></td>
+                        +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()
+                        +' ('+doctorRepo.findById(booking.idDoctor).get().getSpecialization()+')'}"></td>
                     <td>
                         <form method="get" action="deleteBooking">
-                            <button th:name="bid" th:value="${booking.id}">odwołaj wizytę</button>
+                            <button th:name="bid" th:value="${booking.id}" class="btn btn-primary btn-sm" style="width: auto; height: auto;"> 
+                                <h6 th:text="${buttonName}"></h6>
+                            </button>
                         </form>
                     </td>
                 </tr>
