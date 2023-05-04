@@ -19,7 +19,6 @@ import lombok.AccessLevel;
 
 @Data
 @AllArgsConstructor
-//@RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Entity
 @Table(name = "Appointments")
@@ -38,8 +37,5 @@ public class Appointment implements Serializable{
     private String type;
     @Column
     private double price;
-/*    @Column
-    private Date data;
-    @Column
-    private Date time;*/  
+
 }

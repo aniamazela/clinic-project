@@ -109,7 +109,8 @@
                                 </td>
                                 <td style="width: 40%;">
                                     <div class="form-group" th:if="${#authorization.expression('hasRole(''USER'')')}">
-                                        <input type="submit" class="btn btn-link" value="Umów wizytę" ></input>
+                                        <button type="submit" class="btn btn-primary" style="width: auto;"> Umów wizytę.</button>
+                                        <!-- <input type="submit" class="btn btn-link" value="Umów wizytę" ></input> -->
                                     </div>
                                 <div class="form-group" th:unless="${#authorization.expression('hasRole(''USER'')')}">
                                     <button type="button">Aby zarezerować wizytę<br />musisz być zalogowany!</button>

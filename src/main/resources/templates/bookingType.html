@@ -56,7 +56,7 @@
                     <tr style="border: 1px solid #ccc" th:each="appointment: ${appointments}"
                         th:if="${appointment.specialization.equals(specialization)}">
 
-                        <td> <input type="radio" th:name="type" th:value="${appointment.type}">
+                        <td> <input type="radio" required th:name="type" th:value="${appointment.type}">
                         </td>
                         <td>
                             <label th:text="${appointment.type}" style="font-weight: normal;"

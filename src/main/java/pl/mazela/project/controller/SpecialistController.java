@@ -35,40 +35,7 @@ public class SpecialistController {
         this.bookingRepo = bookingRepo;
     }
 
-    // @GetMapping("/doctor/{id}/{nameAndSurname}")
-    // public String showDoctor(@PathVariable Long id,
-    // Model model, @PathVariable String nameAndSurname) {
-    // LocalDate today = LocalDate.now();
-    // LocalDate maxDate = today.plusDays(32);
-    // model.addAttribute("minDate", today);
-    // model.addAttribute("maxDate", maxDate);
-    // Booking booking = new Booking();
-    // model.addAttribute("booking", booking);
-    // myDoctor = doctorRepo.findById(id).orElse(null);
-    // model.addAttribute("doctor", doctorRepo.findById(id).orElse(null));
-    // model.addAttribute("appointments", appointmentRepo.findAll());
-    // model.addAttribute("day1", doctorRepo.findById(id).orElse(null).getDayOn1());
-    // model.addAttribute("day2", doctorRepo.findById(id).orElse(null).getDayOn2());
-    // return "specialistDateOk";
-    // }
 
-    // @GetMapping("/doctor/{id}/{nameAndSurname}/{date}")
-    // public String chooseTime(@PathVariable Long id, @RequestParam String date,
-    // Model model, @PathVariable String nameAndSurname) {
-    // model.addAttribute("doctor", doctorRepo.findById(id).orElse(null));
-    // model.addAttribute("date", date);
-    // return "specialist_time";
-    // }
-
-    // @GetMapping("/doctor/{id}/{nameAndSurname}/{date}/{time}")
-    // public String chooseType(@PathVariable Long id, @RequestParam String date,
-    // @RequestParam String time,
-    // Model model, @PathVariable String nameAndSurname) {
-    // model.addAttribute("doctor", doctorRepo.findById(id).orElse(null));
-    // model.addAttribute("date", date);
-    // model.addAttribute("time", time);
-    // return "specialist_tyyype";
-    // }
 
     @PostMapping("/doctor/{did}/{nameAndSurname}")
     public String saveDoctorToBooking(Booking booking, Model model, @PathVariable Long did) {
@@ -83,15 +50,6 @@ public class SpecialistController {
         bookingRepo.save(booking);
         return "bookingDate";
     }
-
-    // @GetMapping("/updateBooking/{id}")
-    // String updateDate(Booking booking, @PathVariable("id") Long id, @RequestParam Date date) {
-
-    //     booking = bookingRepo.findById(id).orElse(null);
-    //     booking.setDate(date);
-    //     bookingRepo.save(booking);
-    //     return "specialist_time";
-    // }
 
     @PostMapping("/updateTime/{bid}")
     String updateBookin(@RequestParam Long bid, @ModelAttribute Booking booking, Model model,
@@ -141,14 +99,5 @@ public class SpecialistController {
         return "bookingSucess";
     }
 
-
-    // @PostMapping ("/bookingTime")
-    // public String chooseTime(@ModelAttribute("booking") Booking booking,
-    // Model model, User user, Doctor doctor){
-    // String pacient=user.getUsername();
-    // Long idDoctor=doctor.getId();
-    // bookingRepo.save(booking);
-    // return "specialist_time";
-    // }
 
 }

@@ -68,6 +68,60 @@
             </nav>
         </div>
 
+        <div th:fragment="sec2">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a th:href="@{/}" style="background-color: transparent;">
+                                Wróc do strony głównej</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div th:fragment="secHome">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div sec:authorize="isAnonymous()">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Nie jesteś zalogowany <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a th:href="@{/register}"><span class="glyphicon glyphicon-log-in"></span> Załóż
+                                            nowe konto</a></li>
+                                    <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Zaloguj
+                                            się</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i style='font-size:24px' class='fas'>&#xf406;</i>
+                                    Jesteś zalogowany jako: <b><span sec:authentication="name"></span></b>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a th:href="@{showBookingAfterNow}"><span
+                                                class="glyphicon glyphicon-info-sign"></span>Moje wizyty</a></li>
+                                    <li>
+                                        <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                                            <span class="glyphicon glyphicon-log-out"
+                                                aria-hidden="true"></span>&nbsp;Wyloguj
+                                            się
+                                        </a>
+                                        <form style="visibility: hidden" id="form" method="post" action="#"
+                                            th:action="@{/logout}"></form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
     </body>
 
 </html>

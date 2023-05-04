@@ -25,5 +25,4 @@ public interface BookingRepository extends JpaRepository <Booking, Long>{
     List <Booking> findByDateisAfterNowForPacient(String pacient, Sort sort);
     @Query("Select b from Booking b WHERE b.status=:status and b.pacient=:pacient")
     List <Booking> findByStatusForPacient(Status status, String pacient, Sort sort);
-
 }

@@ -73,7 +73,6 @@
                         <span class="glyphicon glyphicon-time"></span>
                         <select class="form-select form-select-lg" id="bookingTime" th:name="time"
                             aria-label="label for the select">
-                            <option>---</option>
                             <option value="15:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
                                     (booking.idDoctor, booking.date, '15:00')}">15:00</option>
                             <option value="15:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime

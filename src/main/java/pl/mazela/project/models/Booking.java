@@ -25,15 +25,8 @@ public class Booking implements Serializable {
   @Column
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private String pacient;
 
-  // @DateTimeFormat(pattern = "dd.MM.yyyy")
-  // @Column
-  // @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
-  // @DateTimeFormat(pattern = "yyyy-MM-dd")
-  // /**/private Calendar date;
-  // @DateTimeFormat(pattern = "yyyy-MM-dd")
-  // private Calendar date;
+  private String pacient;
 
   private Long idDoctor;
 
@@ -44,6 +37,7 @@ public class Booking implements Serializable {
   private LocalTime time;
 
   private String type;
+  
   @Enumerated(EnumType.STRING)
   private Status status;
 

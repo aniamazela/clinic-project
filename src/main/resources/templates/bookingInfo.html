@@ -24,17 +24,17 @@
     <div th:insert="fragments/general.html :: sec1"> </div>
     <div class="right">
 
-        <form method="post" th:action="@{/sucess/{bid} (bid=${booking.id})}" >
         <h2 style="text-decoration: underline;">Szczegóły wizyty:</h2>
         <h2 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h2>
         <h4 th:text="'specjalizacja:  '+${doctor.specialization}"></h4>
         <h4 th:text="'Data wizyty:  '+${#dates.format(booking.date, 'dd.MM.yyyy')}"></h4>
         <h4 th:text="'Godzina wizyty:  '+${booking.time}"></h4>
         <h4 th:text="'Typ wizyty:  '+${booking.type}"></h4>
+        <h4 th:text="'Cena wizyty:  '+${#numbers.formatDecimal(appointment.price,3,2,'COMMA')}+'zł'"></h4>
+        <h4 th:text="'Status wizyty:  '+${status}"></h4>
         <br>
-        <button type="submit" class="btn btn-primary"> Potwierdz i umów wizytę.</button>
-    </form>
-
+        <h3> <a th:href="@{/doctors?page=1}" class="btn btn-primary">Umów kolejną wizytę.</a></h3></a>
+        <h3> <a th:href="@{showBookingAfterNow}" class="btn btn-primary">Przejdz do moich wizyt.</a></h3></a>
         </div>
 
     </div>

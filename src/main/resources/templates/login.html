@@ -18,10 +18,8 @@
 </head>
 
 <body>
-    <div class="header">
-        <p>Moja e-przychodnia</p>
-    </div>
-
+    <header th:insert="fragments/general.html :: header"> </header>
+    <div th:insert="fragments/general.html :: sec2"> </div>
     <div class="right">
         <br>
         <div th:if="${param.error}" class="error">
@@ -43,11 +41,7 @@
                         <button type="submit" class="btn btn-primary">Zaloguj się</button>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-                        <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
-                    </td>
-                </tr>
+
             </form>
         </table>
     </div>

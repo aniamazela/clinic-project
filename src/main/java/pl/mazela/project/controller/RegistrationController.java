@@ -46,9 +46,7 @@ public class RegistrationController {
             return "registerForm";
         }
 
-        //User user = 
         userRepo.save(form.toUser(passwordEncoder));
-       // model.addAttribute("user", user);
         return "redirect:/login";
 
     }

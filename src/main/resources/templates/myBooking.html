@@ -17,6 +17,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+        <style>
+            td, th{
+                text-align: center;
+            }
+        </style>
 </head>
 
 <body>
@@ -62,11 +67,26 @@
                         +' '+ doctorRepo.findById(booking.idDoctor).get().getSurname()
                         +' ('+doctorRepo.findById(booking.idDoctor).get().getSpecialization()+')'}"></td>
                     <td>
-                        <form method="get" action="deleteBooking">
-                            <button th:name="bid" th:value="${booking.id}" class="btn btn-primary btn-sm" style="width: auto; height: auto;"> 
-                                <h6 th:text="${buttonName}"></h6>
-                            </button>
-                        </form>
+                        <span th:if="${buttonName=='INFO'}">
+                            <form method="get" action="bookingInfo">
+                                <button th:name="bid" th:value="${booking.id}" class="btn btn-primary btn-sm" style="width: auto; height: auto;"> 
+                                    Szczegóły <br>wizyty
+                                </button>
+                            </form>
+                        </span>
+                        <span th:if="${buttonName=='DEL&INFO'}">
+                            <form method="get" action="bookingInfo">
+                                <button th:name="bid" th:value="${booking.id}" class="btn btn-primary btn-sm" style="width: auto; height: auto;"> 
+                                    Szczegóły <br>wizyty.
+                                </button>
+                            </form>
+                            <form method="get" action="deleteBooking">
+                                <button th:name="bid" th:value="${booking.id}" class="btn btn-primary btn-sm" style="width: auto; height: auto;"> 
+                                    Odwołaj <br>wizytę.
+                                </button>
+                            </form>
+                        </span>
+
                     </td>
                 </tr>
             </tbody>
