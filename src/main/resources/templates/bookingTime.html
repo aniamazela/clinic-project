@@ -39,14 +39,10 @@
             border: 1px solid #ccc
         }
 
-
         select option:disabled {
             background: lightgrey;
         }
 
-        select option:not(:disabled) {
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -73,6 +69,26 @@
                         <span class="glyphicon glyphicon-time"></span>
                         <select class="form-select form-select-lg" id="bookingTime" th:name="time"
                             aria-label="label for the select">
+                            <option value="10:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '10:00')}">10:00</option>
+                            <option value="10:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '10:30')}">10:30</option>
+                            <option value="11:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '11:00')}">11:00</option>
+                            <option value="11:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '11:30')}">11:30</option>
+                            <option value="12:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '12:00')}">12:00</option>
+                            <option value="12:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '12:30')}">12:30</option>+
+                            <option value="13:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '13:00')}">13:00</option>
+                            <option value="13:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '13:30')}">13:30</option>
+                            <option value="14:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '14:00')}">14:00</option>
+                            <option value="14:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
+                                (booking.idDoctor, booking.date, '14:30')}">14:30</option>
                             <option value="15:00" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime
                                     (booking.idDoctor, booking.date, '15:00')}">15:00</option>
                             <option value="15:30" th:disabled="${bookingRepo.existsByIdDoctorAndDateAndTime

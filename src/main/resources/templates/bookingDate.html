@@ -23,6 +23,7 @@
     <header th:insert="fragments/general.html :: header"> </header>
     <div th:insert="fragments/general.html :: sec1"> </div>
     <div class="right">
+        <h4 th:text="${message}" style="color: red;"></h4>
 
         <h2 th:text="${doctor.degree}+' '+${doctor.name}+' '+${doctor.surname}"></h2>
         <h4 th:text="'specjalizacja:  '+${doctor.specialization}"></h4>
@@ -59,12 +60,16 @@
             minDate: +1,
             firstDay: 1,
             maxDate: +32,
+            
             beforeShowDay: function (d) {
                 var day = d.getDay();
                 var day1 = "[[${day1}]]";
                 var day2 = "[[${day2}]]";
-                return [day == day1 || day == day2];
+                var day3 = "[[${day3}]]";
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', d);
+                return [(day == day1 || day == day2) && day3.indexOf(string) == -1];
             },
+ 
         });
     });
 </script>
